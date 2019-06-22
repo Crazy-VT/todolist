@@ -15,7 +15,8 @@ window.addEventListener('load',function () {
             tab[prev].classList.remove("hot");
             tab[i].classList.add("hot");
             prev=i;
-            type=tab[i].id;
+            console.log(tab[i]);
+            type=tab[i].type;
             todolist(istype(type));
         };
     }
@@ -25,9 +26,9 @@ window.addEventListener('load',function () {
     let input=document.querySelectorAll("input");
     input[1].onclick=function(e){
         e.preventDefault();
-        // console.log(sub());
+        console.log(sub());
         arr.push(sub());
-        // console.log(arr);
+        console.log(arr);
         todolist(istype(type));
         form.reset();
     }
@@ -39,15 +40,6 @@ window.addEventListener('load',function () {
         return ({id,content,time,status});
     }
 //
-//     let str=localStorage.getItem('arr');
-// //     if(!str){
-// //         saveData();
-// //         str=localStorage.getItem('arr');
-// //     }
-// //     // arr=JSON.parse(str);
-// //     function saveData() {
-// //         return localStorage.setItem("arr",arr);
-// //     }
 
     let str = localStorage.getItem('arr');
     if (!str){
@@ -66,7 +58,7 @@ function istype(type){
     let newarr=[];
     switch (type) {
         case "all":
-            newarr=arr;
+            return newarr=arr;
             break;
         case "done":
             newarr=arr.filter(function (arr) {
